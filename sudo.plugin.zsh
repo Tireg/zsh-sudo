@@ -47,5 +47,5 @@ zle -N sudo_zle_handler;
 zstyle -s ':tireg:module:sudo' keys binding_keys;
 
 # Defined shortcut keys: [Esc] [Esc] by default
-bindkey "${binding_keys:-\e\e}" sudo-command-line            # Normal / emacs mode
-bindkey -M vicmd "${binding_keys:-\e\e}" sudo-command-line   # Vim mode
+bindkey "${binding_keys:-\e\e}" sudo_zle_handler            # Normal / emacs mode
+bindkey -M vicmd "${binding_keys:-\e\e}" sudo_zle_handler   # Vim mode
