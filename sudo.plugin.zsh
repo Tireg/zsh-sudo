@@ -43,9 +43,9 @@ _sudo_zle_handler() {
 # Use this behavior as a zle widget
 zle -N _sudo_zle_handler;
 
-# Retrieve user config
-zstyle -s ':tireg:module:sudo' keys binding_keys;
+# Retrieve user config or use the default
+zstyle -s ':tireg:module:sudo' keys binding_keys || binding_keys='\e\e';
 
 # Defined shortcut keys: [Esc] [Esc] by default
-bindkey "${binding_keys:-\e\e}" _sudo_zle_handler            # Normal / emacs mode
-bindkey -M vicmd "${binding_keys:-\e\e}" _sudo_zle_handler   # Vim mode
+bindkey "${binding_keys}" _sudo_zle_handler            # Normal / emacs mode
+bindkey -M vicmd "${binding_keys}" _sudo_zle_handler   # Vim mode
